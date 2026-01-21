@@ -1,0 +1,15 @@
+[
+  {
+    "id": "s101",
+    "name": "thanmayi",
+    "department": "cse",
+    "semester": "4",
+    "marks": [
+      45,
+      67,
+      89,
+      34,
+      23
+    ]
+  }
+]
