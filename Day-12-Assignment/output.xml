@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.1 (Python 3.11.4 on win32)" generated="2026-01-29T18:17:06.220044" rpa="false" schemaversion="5">
+<suite id="s1" name="Q1" source="C:\Users\thanm\PycharmProjects\PythonProject1\labs pac\Day 12\Q1.robot">
+<test id="s1-t1" name="Log Messages With Variables" line="9">
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-01-29T18:17:06.258005" level="INFO">This is a log message from Robot Framework</msg>
+<arg>This is a log message from Robot Framework</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-01-29T18:17:06.257009" elapsed="0.000996"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${GREETING}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-01-29T18:17:06.258005" elapsed="0.000997"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-01-29T18:17:06.259002" level="INFO">The list of fruits: ['Apple', 'Banana', 'Orange']</msg>
+<arg>The list of fruits: ${FRUITS}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-01-29T18:17:06.259002" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2026-01-29T18:17:06.257009" elapsed="0.002497"/>
+</test>
+<test id="s1-t2" name="List Variable Logging" line="14">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>List items individually:</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-01-29T18:17:06.259506" elapsed="0.000000"/>
+</kw>
+<kw name="Log Many" owner="BuiltIn">
+<msg time="2026-01-29T18:17:06.259506" level="INFO">Apple</msg>
+<msg time="2026-01-29T18:17:06.259506" level="INFO">Banana</msg>
+<msg time="2026-01-29T18:17:06.259506" level="INFO">Orange</msg>
+<arg>@{FRUITS}</arg>
+<doc>Logs the given messages as separate entries using the INFO level.</doc>
+<status status="PASS" start="2026-01-29T18:17:06.259506" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Scalar variable again: ${GREETING}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-01-29T18:17:06.259506" elapsed="0.001504"/>
+</kw>
+<status status="PASS" start="2026-01-29T18:17:06.259506" elapsed="0.001504"/>
+</test>
+<status status="PASS" start="2026-01-29T18:17:06.221532" elapsed="0.039478"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Q1" id="s1" pass="2" fail="0" skip="0">Q1</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
