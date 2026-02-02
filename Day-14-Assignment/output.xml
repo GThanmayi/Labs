@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.1 (Python 3.11.4 on win32)" generated="2026-02-02T17:55:57.558021" rpa="false" schemaversion="5">
+<suite id="s1" name="Selinium Form Test" source="C:\Users\thanm\PycharmProjects\PythonProject1\labs pac\Day 14\selinium_form_test.robot">
+<kw name="Open Test Browser" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-02-02T17:55:57.943176" level="INFO">Opening browser 'chrome' to base url 'https://testautomationpractice.blogspot.com/'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-02-02T17:55:57.942164" elapsed="7.141475"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-02-02T17:56:05.083639" elapsed="0.046302"/>
+</kw>
+<status status="PASS" start="2026-02-02T17:55:57.941145" elapsed="7.188796"/>
+</kw>
+<test id="s1-t1" name="Form Interaction Test" line="11">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id:name</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-02T17:56:05.130946" elapsed="0.207948"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-02-02T17:56:05.340389" level="INFO">Typing text 'Harika' into text field 'id:name'.</msg>
+<arg>id:name</arg>
+<arg>Harika</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-02T17:56:05.340389" elapsed="0.170737"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-02-02T17:56:05.512135" level="INFO">Typing text 'harika@example.com' into text field 'id:email'.</msg>
+<arg>id:email</arg>
+<arg>harika@example.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-02T17:56:05.512135" elapsed="0.128742"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id:female</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-02T17:56:05.640877" elapsed="0.059413"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-02-02T17:56:05.701375" level="INFO">Clicking element 'id:female'.</msg>
+<arg>id:female</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-02T17:56:05.700290" elapsed="0.219363"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id:sunday</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-02T17:56:05.919653" elapsed="0.024182"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-02-02T17:56:05.944843" level="INFO">Clicking element 'id:sunday'.</msg>
+<arg>id:sunday</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-02T17:56:05.944843" elapsed="0.599450"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id:country</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-02T17:56:06.544293" elapsed="0.055628"/>
+</kw>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2026-02-02T17:56:06.601434" level="INFO">Selecting options from selection list 'id:country' by label India.</msg>
+<arg>id:country</arg>
+<arg>India</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2026-02-02T17:56:06.600428" elapsed="0.284728"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-02-02T17:56:06.888785" level="INFO">Running on Chrome browser</msg>
+<arg>Running on Chrome browser</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-02-02T17:56:06.887682" elapsed="0.001103"/>
+</kw>
+<arg>'${BROWSER}' == 'chrome'</arg>
+<arg>Log</arg>
+<arg>Running on Chrome browser</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2026-02-02T17:56:06.885664" elapsed="0.004133"/>
+</kw>
+<status status="PASS" start="2026-02-02T17:56:05.129941" elapsed="1.760367"/>
+</test>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-02-02T17:56:06.892313" elapsed="2.499112"/>
+</kw>
+<status status="PASS" start="2026-02-02T17:55:57.559028" elapsed="11.832397"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Selinium Form Test" id="s1" pass="1" fail="0" skip="0">Selinium Form Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
