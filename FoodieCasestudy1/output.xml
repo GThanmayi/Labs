@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.1 (Python 3.11.4 on win32)" generated="2026-02-16T16:13:12.232117" rpa="false" schemaversion="5">
+<suite id="s1" name="Api Test2" source="C:\Users\thanm\PycharmProjects\PythonProject1\FoodieCasestudy\api_test2.robot">
+<test id="s1-t1" name="Register Restaurant" line="13">
+<kw name="Create Session">
+<msg time="2026-02-16T16:13:12.370642" level="FAIL">No keyword with name 'Create Session' found.</msg>
+<arg>foodie</arg>
+<arg>${BASE_URL}</arg>
+<status status="FAIL" start="2026-02-16T16:13:12.370642" elapsed="0.000000">No keyword with name 'Create Session' found.</status>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<var>${body}</var>
+<arg>name=Global Delight</arg>
+<arg>location=Hyderabad</arg>
+<arg>category=Multi-cuisine</arg>
+<arg>contact=9876543210</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="NOT RUN" start="2026-02-16T16:13:12.384438" elapsed="0.000000"/>
+</kw>
+<kw name="POST On Session">
+<var>${resp}</var>
+<arg>foodie</arg>
+<arg>/restaurants</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=201</arg>
+<status status="NOT RUN" start="2026-02-16T16:13:12.386438" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${id}</var>
+<arg>${resp.json()["id"]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2026-02-16T16:13:12.386438" elapsed="0.000000"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<arg>${REST_ID}</arg>
+<arg>${id}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="NOT RUN" start="2026-02-16T16:13:12.387945" elapsed="0.000000"/>
+</kw>
+<doc>Req #1: Register a new restaurant</doc>
+<status status="FAIL" start="2026-02-16T16:13:12.368125" elapsed="0.019820">No keyword with name 'Create Session' found.</status>
+</test>
+<test id="s1-t2" name="Register Restaurant Conflict" line="21">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-02-16T16:13:12.393806" level="INFO">${body} = {'name': 'Global Delight', 'location': 'Hyderabad'}</msg>
+<var>${body}</var>
+<arg>name=Global Delight</arg>
+<arg>location=Hyderabad</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-02-16T16:13:12.391550" elapsed="0.002256"/>
+</kw>
+<kw name="POST On Session">
+<msg time="2026-02-16T16:13:12.468857" level="FAIL">No keyword with name 'POST On Session' found.</msg>
+<arg>foodie</arg>
+<arg>/restaurants</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=409</arg>
+<status status="FAIL" start="2026-02-16T16:13:12.468857" elapsed="0.000000">No keyword with name 'POST On Session' found.</status>
+</kw>
+<doc>Req #1: Verify 409 Conflict for duplicate name</doc>
+<status status="FAIL" start="2026-02-16T16:13:12.387945" elapsed="0.088940">No keyword with name 'POST On Session' found.</status>
+</test>
+<test id="s1-t3" name="Update Restaurant Details" line="26">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-02-16T16:13:12.590211" level="INFO">${body} = {'location': 'Vijayawada'}</msg>
+<var>${body}</var>
+<arg>location=Vijayawada</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-02-16T16:13:12.589206" elapsed="0.001005"/>
+</kw>
+<kw name="PUT On Session">
+<msg time="2026-02-16T16:13:12.626555" level="FAIL">No keyword with name 'PUT On Session' found.</msg>
+<var>${resp}</var>
+<arg>foodie</arg>
+<arg>/restaurants/${REST_ID}</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=200</arg>
+<status status="FAIL" start="2026-02-16T16:13:12.626555" elapsed="0.001507">No keyword with name 'PUT On Session' found.</status>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${resp.json()["location"]}</arg>
+<arg>Vijayawada</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="NOT RUN" start="2026-02-16T16:13:12.635264" elapsed="0.000000"/>
+</kw>
+<doc>Req #2: Update restaurant location</doc>
+<status status="FAIL" start="2026-02-16T16:13:12.577279" elapsed="0.098669">No keyword with name 'PUT On Session' found.</status>
+</test>
+<test id="s1-t4" name="Disable Restaurant" line="32">
+<kw name="PUT On Session">
+<msg time="2026-02-16T16:13:12.741055" level="FAIL">No keyword with name 'PUT On Session' found.</msg>
+<arg>foodie</arg>
+<arg>/restaurants/${REST_ID}/disable</arg>
+<arg>expected_status=200</arg>
+<status status="FAIL" start="2026-02-16T16:13:12.741055" elapsed="0.000000">No keyword with name 'PUT On Session' found.</status>
+</kw>
+<doc>Req #3: Disable restaurant</doc>
+<status status="FAIL" start="2026-02-16T16:13:12.712812" elapsed="0.039015">No keyword with name 'PUT On Session' found.</status>
+</test>
+<test id="s1-t5" name="Get Restaurant Profile" line="36">
+<kw name="GET On Session">
+<msg time="2026-02-16T16:13:12.929689" level="FAIL">No keyword with name 'GET On Session' found.</msg>
+<arg>foodie</arg>
+<arg>/restaurants/${REST_ID}</arg>
+<arg>expected_status=200</arg>
+<status status="FAIL" start="2026-02-16T16:13:12.928684" elapsed="0.001005">No keyword with name 'GET On Session' found.</status>
+</kw>
+<doc>Req #4: View restaurant details</doc>
+<status status="FAIL" start="2026-02-16T16:13:12.874687" elapsed="0.072075">No keyword with name 'GET On Session' found.</status>
+</test>
+<test id="s1-t6" name="Add Dish to Restaurant" line="42">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-02-16T16:13:12.990494" level="INFO">${body} = {'name': 'Biryani', 'type': 'Non-Veg', 'price': 250}</msg>
+<var>${body}</var>
+<arg>name=Biryani</arg>
+<arg>type=Non-Veg</arg>
+<arg>price=${250}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-02-16T16:13:12.987982" elapsed="0.002512"/>
+</kw>
+<kw name="POST On Session">
+<msg time="2026-02-16T16:13:13.002281" level="FAIL">No keyword with name 'POST On Session' found.</msg>
+<var>${resp}</var>
+<arg>foodie</arg>
+<arg>/restaurants/${REST_ID}/dishes</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=201</arg>
+<status status="FAIL" start="2026-02-16T16:13:13.002281" elapsed="0.000000">No keyword with name 'POST On Session' found.</status>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${id}</var>
+<arg>${resp.json()["id"]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2026-02-16T16:13:13.071658" elapsed="0.001000"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<arg>${DISH_ID}</arg>
+<arg>${id}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="NOT RUN" start="2026-02-16T16:13:13.082999" elapsed="0.000000"/>
+</kw>
+<doc>Req #5: Add a new dish</doc>
+<status status="FAIL" start="2026-02-16T16:13:12.976990" elapsed="0.109393">No keyword with name 'POST On Session' found.</status>
+</test>
+<test id="s1-t7" name="Update Dish Details" line="49">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-02-16T16:13:13.191650" level="INFO">${body} = {'price': 280}</msg>
+<var>${body}</var>
+<arg>price=${280}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-02-16T16:13:13.189647" elapsed="0.002003"/>
+</kw>
+<kw name="PUT On Session">
+<msg time="2026-02-16T16:13:13.210739" level="FAIL">No keyword with name 'PUT On Session' found.</msg>
+<var>${resp}</var>
+<arg>foodie</arg>
+<arg>/dishes/${DISH_ID}</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=200</arg>
+<status status="FAIL" start="2026-02-16T16:13:13.210739" elapsed="0.000000">No keyword with name 'PUT On Session' found.</status>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<arg>${resp.json()["price"]}</arg>
+<arg>280</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="NOT RUN" start="2026-02-16T16:13:13.225322" elapsed="0.000000"/>
+</kw>
+<doc>Req #6: Update dish price</doc>
+<status status="FAIL" start="2026-02-16T16:13:13.184133" elapsed="0.043190">No keyword with name 'PUT On Session' found.</status>
+</test>
+<test id="s1-t8" name="Toggle Dish Status" line="55">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-02-16T16:13:13.229836" level="INFO">${body} = {'enabled': False}</msg>
+<var>${body}</var>
+<arg>enabled=${False}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-02-16T16:13:13.229836" elapsed="0.000000"/>
+</kw>
+<kw name="PUT On Session">
+<msg time="2026-02-16T16:13:13.240875" level="FAIL">No keyword with name 'PUT On Session' found.</msg>
+<arg>foodie</arg>
+<arg>/dishes/${DISH_ID}/status</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=200</arg>
+<status status="FAIL" start="2026-02-16T16:13:13.240875" elapsed="0.000000">No keyword with name 'PUT On Session' found.</status>
+</kw>
+<doc>Req #7: Enable/Disable dish status</doc>
+<status status="FAIL" start="2026-02-16T16:13:13.227323" elapsed="0.017059">No keyword with name 'PUT On Session' found.</status>
+</test>
+<test id="s1-t9" name="Delete Dish" line="60">
+<kw name="DELETE On Session">
+<msg time="2026-02-16T16:13:13.246387" level="FAIL">No keyword with name 'DELETE On Session' found.</msg>
+<arg>foodie</arg>
+<arg>/dishes/${DISH_ID}</arg>
+<arg>expected_status=200</arg>
+<status status="FAIL" start="2026-02-16T16:13:13.246387" elapsed="0.000000">No keyword with name 'DELETE On Session' found.</status>
+</kw>
+<doc>Req #8: Delete a dish</doc>
+<status status="FAIL" start="2026-02-16T16:13:13.245388" elapsed="0.007531">No keyword with name 'DELETE On Session' found.</status>
+</test>
+<test id="s1-t10" name="Admin Approve Restaurant" line="66">
+<kw name="PUT On Session">
+<msg time="2026-02-16T16:13:13.256436" level="FAIL">No keyword with name 'PUT On Session' found.</msg>
+<arg>foodie</arg>
+<arg>/admin/restaurants/${REST_ID}/approve</arg>
+<arg>expected_status=200</arg>
+<status status="FAIL" start="2026-02-16T16:13:13.256436" elapsed="0.000000">No keyword with name 'PUT On Session' found.</status>
+</kw>
+<doc>Req #9: Approve restaurant registration</doc>
+<status status="FAIL" start="2026-02-16T16:13:13.254428" elapsed="0.002008">No keyword with name 'PUT On Session' found.</status>
+</test>
+<test id="s1-t11" name="Admin Disable Restaurant" line="70">
+<kw name="PUT On Session">
+<msg time="2026-02-16T16:13:13.266355" level="FAIL">No keyword with name 'PUT On Session' found.</msg>
+<arg>foodie</arg>
+<arg>/admin/restaurants/${REST_ID}/disable</arg>
+<arg>expected_status=200</arg>
+<status status="FAIL" start="2026-02-16T16:13:13.266355" elapsed="0.001020">No keyword with name 'PUT On Session' found.</status>
+</kw>
+<doc>Req #10: Admin level disable</doc>
+<status status="FAIL" start="2026-02-16T16:13:13.257944" elapsed="0.009431">No keyword with name 'PUT On Session' found.</status>
+</test>
+<test id="s1-t12" name="Admin View Feedbacks" line="74">
+<kw name="GET On Session">
+<msg time="2026-02-16T16:13:13.271300" level="FAIL">No keyword with name 'GET On Session' found.</msg>
+<arg>foodie</arg>
+<arg>/admin/feedback</arg>
+<arg>expected_status=200</arg>
+<status status="FAIL" start="2026-02-16T16:13:13.271300" elapsed="0.000000">No keyword with name 'GET On Session' found.</status>
+</kw>
+<doc>Req #11: View all user feedbacks</doc>
+<status status="FAIL" start="2026-02-16T16:13:13.267375" elapsed="0.003925">No keyword with name 'GET On Session' found.</status>
+</test>
+<test id="s1-t13" name="Admin View All Orders" line="78">
+<kw name="GET On Session">
+<msg time="2026-02-16T16:13:13.273433" level="FAIL">No keyword with name 'GET On Session' found.</msg>
+<arg>foodie</arg>
+<arg>/admin/orders</arg>
+<arg>expected_status=200</arg>
+<status status="FAIL" start="2026-02-16T16:13:13.273433" elapsed="0.000000">No keyword with name 'GET On Session' found.</status>
+</kw>
+<doc>Req #12: View all orders in system</doc>
+<status status="FAIL" start="2026-02-16T16:13:13.271300" elapsed="0.003137">No keyword with name 'GET On Session' found.</status>
+</test>
+<test id="s1-t14" name="Register User" line="84">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-02-16T16:13:13.275436" level="INFO">${body} = {'name': 'Alice', 'email': 'alice_new@example.com', 'password': 'password123'}</msg>
+<var>${body}</var>
+<arg>name=Alice</arg>
+<arg>email=alice_new@example.com</arg>
+<arg>password=password123</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-02-16T16:13:13.275436" elapsed="0.000000"/>
+</kw>
+<kw name="POST On Session">
+<msg time="2026-02-16T16:13:13.280242" level="FAIL">No keyword with name 'POST On Session' found.</msg>
+<var>${resp}</var>
+<arg>foodie</arg>
+<arg>/users/register</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=201</arg>
+<status status="FAIL" start="2026-02-16T16:13:13.279239" elapsed="0.001003">No keyword with name 'POST On Session' found.</status>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${id}</var>
+<arg>${resp.json()["id"]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2026-02-16T16:13:13.281456" elapsed="0.000000"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<arg>${USER_ID}</arg>
+<arg>${id}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="NOT RUN" start="2026-02-16T16:13:13.282475" elapsed="0.000000"/>
+</kw>
+<doc>Req #13: Customer registration</doc>
+<status status="FAIL" start="2026-02-16T16:13:13.274437" elapsed="0.008038">No keyword with name 'POST On Session' found.</status>
+</test>
+<test id="s1-t15" name="Search Restaurants" line="91">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-02-16T16:13:13.286318" level="INFO">${params} = {'name': 'Global', 'location': 'Vijayawada'}</msg>
+<var>${params}</var>
+<arg>name=Global</arg>
+<arg>location=Vijayawada</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-02-16T16:13:13.284988" elapsed="0.001330"/>
+</kw>
+<kw name="GET On Session">
+<msg time="2026-02-16T16:13:13.288830" level="FAIL">No keyword with name 'GET On Session' found.</msg>
+<arg>foodie</arg>
+<arg>url=/restaurants/search</arg>
+<arg>params=${params}</arg>
+<arg>expected_status=200</arg>
+<status status="FAIL" start="2026-02-16T16:13:13.288323" elapsed="0.000507">No keyword with name 'GET On Session' found.</status>
+</kw>
+<doc>Req #14: Search by name and location (Fixes the URL error)</doc>
+<status status="FAIL" start="2026-02-16T16:13:13.283983" elapsed="0.005561">No keyword with name 'GET On Session' found.</status>
+</test>
+<test id="s1-t16" name="Place Order" line="96">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-02-16T16:13:13.291547" level="INFO">${items} = [{'dish_id': 1, 'qty': 2}]</msg>
+<var>${items}</var>
+<arg>[{"dish_id": 1, "qty": 2}]</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-02-16T16:13:13.290547" elapsed="0.001000"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-02-16T16:13:13.293216" level="FAIL">Variable '${USER_ID}' not found.</msg>
+<var>${body}</var>
+<arg>user_id=${USER_ID}</arg>
+<arg>restaurant_id=${REST_ID}</arg>
+<arg>items=${items}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="FAIL" start="2026-02-16T16:13:13.291547" elapsed="0.001669">Variable '${USER_ID}' not found.</status>
+</kw>
+<kw name="POST On Session">
+<var>${resp}</var>
+<arg>foodie</arg>
+<arg>/orders</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=201</arg>
+<status status="NOT RUN" start="2026-02-16T16:13:13.293216" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${id}</var>
+<arg>${resp.json()["id"]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2026-02-16T16:13:13.294224" elapsed="0.000000"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<arg>${ORDER_ID}</arg>
+<arg>${id}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="NOT RUN" start="2026-02-16T16:13:13.294224" elapsed="0.000000"/>
+</kw>
+<doc>Req #15: User places an order</doc>
+<status status="FAIL" start="2026-02-16T16:13:13.289544" elapsed="0.005684">Variable '${USER_ID}' not found.</status>
+</test>
+<test id="s1-t17" name="Give Rating" line="105">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-02-16T16:13:13.300741" level="FAIL">Variable '${ORDER_ID}' not found.</msg>
+<var>${body}</var>
+<arg>order_id=${ORDER_ID}</arg>
+<arg>rating=${5}</arg>
+<arg>comment=Excellent</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="FAIL" start="2026-02-16T16:13:13.296226" elapsed="0.004515">Variable '${ORDER_ID}' not found.</status>
+</kw>
+<kw name="POST On Session">
+<arg>foodie</arg>
+<arg>/ratings</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=201</arg>
+<status status="NOT RUN" start="2026-02-16T16:13:13.301741" elapsed="0.000000"/>
+</kw>
+<doc>Req #16: User rates an order</doc>
+<status status="FAIL" start="2026-02-16T16:13:13.295228" elapsed="0.007513">Variable '${ORDER_ID}' not found.</status>
+</test>
+<test id="s1-t18" name="View Orders by Restaurant" line="110">
+<kw name="GET On Session">
+<msg time="2026-02-16T16:13:13.306759" level="FAIL">No keyword with name 'GET On Session' found.</msg>
+<arg>foodie</arg>
+<arg>/restaurants/${REST_ID}/orders</arg>
+<arg>expected_status=200</arg>
+<status status="FAIL" start="2026-02-16T16:13:13.306253" elapsed="0.000506">No keyword with name 'GET On Session' found.</status>
+</kw>
+<doc>Req #17: Restaurant owner views their orders</doc>
+<status status="FAIL" start="2026-02-16T16:13:13.304248" elapsed="0.002511">No keyword with name 'GET On Session' found.</status>
+</test>
+<test id="s1-t19" name="View Orders by User" line="114">
+<kw name="GET On Session">
+<msg time="2026-02-16T16:13:13.309564" level="FAIL">No keyword with name 'GET On Session' found.</msg>
+<arg>foodie</arg>
+<arg>/users/${USER_ID}/orders</arg>
+<arg>expected_status=200</arg>
+<status status="FAIL" start="2026-02-16T16:13:13.309564" elapsed="0.001004">No keyword with name 'GET On Session' found.</status>
+</kw>
+<doc>Req #18: Customer views their history</doc>
+<status status="FAIL" start="2026-02-16T16:13:13.307664" elapsed="0.002904">No keyword with name 'GET On Session' found.</status>
+</test>
+<doc>Complete API Test Suite for Foodie App</doc>
+<status status="FAIL" start="2026-02-16T16:13:12.235565" elapsed="1.076003"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="19" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Api Test2" id="s1" pass="0" fail="19" skip="0">Api Test2</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2026-02-16T16:13:12.338802" level="ERROR">Error in file 'C:\Users\thanm\PycharmProjects\PythonProject1\FoodieCasestudy\api_test2.robot' on line 3: Importing library 'RequestsLibrary' failed: ModuleNotFoundError: No module named 'RequestsLibrary'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  C:\Users\thanm\AppData\Local\Programs\Python\Python311\Scripts\robot.exe
+  C:\Users\thanm\AppData\Local\Programs\Python\Python311\python311.zip
+  C:\Users\thanm\AppData\Local\Programs\Python\Python311\DLLs
+  C:\Users\thanm\AppData\Local\Programs\Python\Python311\Lib
+  C:\Users\thanm\AppData\Local\Programs\Python\Python311
+  C:\Users\thanm\AppData\Roaming\Python\Python311\site-packages
+  C:\Users\thanm\AppData\Roaming\Python\Python311\site-packages\win32
+  C:\Users\thanm\AppData\Roaming\Python\Python311\site-packages\win32\lib
+  C:\Users\thanm\AppData\Roaming\Python\Python311\site-packages\Pythonwin
+  C:\Users\thanm\AppData\Local\Programs\Python\Python311\Lib\site-packages</msg>
+</errors>
+</robot>
